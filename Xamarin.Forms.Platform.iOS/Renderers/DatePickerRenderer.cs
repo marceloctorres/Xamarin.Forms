@@ -114,9 +114,17 @@ namespace Xamarin.Forms.Platform.iOS
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
+<<<<<<< HEAD
 
 			if (e.PropertyName == DatePicker.DateProperty.PropertyName || e.PropertyName == DatePicker.FormatProperty.PropertyName)
 			{
+=======
+#pragma warning disable 0618
+			if (e.PropertyName == DatePicker.DateProperty.PropertyName ||
+#pragma warning restore
+				e.PropertyName == DatePicker.SelectedDateProperty.PropertyName ||
+				e.PropertyName == DatePicker.FormatProperty.PropertyName)
+>>>>>>> 42ed2fc30... DatePicker SelectedDate
 				UpdateDateFromModel(true);
 				UpdateCharacterSpacing();
 			}
@@ -157,15 +165,16 @@ namespace Xamarin.Forms.Platform.iOS
 
 		void UpdateDateFromModel(bool animate)
 		{
+#pragma warning disable 0618
 			if (_picker.Date.ToDateTime().Date != Element.Date.Date)
 				_picker.SetDate(Element.Date.ToNSDate(), animate);
-
-			Control.Text = Element.Date.ToString(Element.Format);
+#pragma warning restore
+			Control.Text = Element.SelectedDate?.ToString(Element.Format);
 		}
 
 		void UpdateElementDate()
 		{
-			ElementController.SetValueFromRenderer(DatePicker.DateProperty, _picker.Date.ToDateTime().Date);
+			ElementController?.SetValueFromRenderer(DatePicker.SelectedDateProperty, _picker.Date.ToDateTime().Date);
 		}
 
 		void UpdateFlowDirection()

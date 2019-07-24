@@ -1753,6 +1753,9 @@
     <Compile Update="$(MSBuildThisFileDirectory)Issue8508.xaml.cs">
       <DependentUpon>Issue8508.xaml</DependentUpon>
     </Compile>
+    <Compile Update="$(MSBuildThisFileDirectory)Issue6947.xaml.cs">
+      <DependentUpon>Issue6947.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Issue1455.xaml">
@@ -1961,6 +1964,12 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Issue7242.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Issue6947.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

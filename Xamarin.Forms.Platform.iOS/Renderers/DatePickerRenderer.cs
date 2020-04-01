@@ -114,17 +114,13 @@ namespace Xamarin.Forms.Platform.iOS
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
-<<<<<<< HEAD
 
-			if (e.PropertyName == DatePicker.DateProperty.PropertyName || e.PropertyName == DatePicker.FormatProperty.PropertyName)
-			{
-=======
 #pragma warning disable 0618
 			if (e.PropertyName == DatePicker.DateProperty.PropertyName ||
 #pragma warning restore
 				e.PropertyName == DatePicker.SelectedDateProperty.PropertyName ||
 				e.PropertyName == DatePicker.FormatProperty.PropertyName)
->>>>>>> 42ed2fc30... DatePicker SelectedDate
+			{
 				UpdateDateFromModel(true);
 				UpdateCharacterSpacing();
 			}

@@ -9,7 +9,6 @@ using UIKit;
 using NativeColor = UIKit.UIColor;
 using NativeControl = UIKit.UIControl;
 using NativeView = UIKit.UIView;
-using UIKit;
 
 namespace Xamarin.Forms.Platform.iOS
 #else
@@ -77,13 +76,6 @@ namespace Xamarin.Forms.Platform.MacOS
 			base.LayoutSubviews();
 			if (Control != null)
 				Control.Frame = new RectangleF(0, 0, (nfloat)Element.Width, (nfloat)Element.Height);
-		}
-
-		public override void TraitCollectionDidChange(UITraitCollection previousTraitCollection)
-		{
-			base.TraitCollectionDidChange(previousTraitCollection);
-
-			Control?.SetNeedsDisplay();
 		}
 
 		public override SizeF SizeThatFits(SizeF size)
@@ -248,7 +240,7 @@ namespace Xamarin.Forms.Platform.MacOS
 #if __XCODE11__
 			// Make sure the control adheres to changes in UI theme
 			if (previousTraitCollection?.UserInterfaceStyle != TraitCollection.UserInterfaceStyle)
-				Control.SetNeedsDisplay();
+				Control?.SetNeedsDisplay();
 #endif
 		}
 
